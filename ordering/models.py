@@ -16,7 +16,7 @@ class Zutaten(models.Model):
 class Produkt(models.Model):
     name = models.TextField()
     preis = models.DecimalField(decimal_places=2, max_digits=4)
-    # ToDo: Ich will wissen, was für Zutaten in Produkt sind
+    zutaten = models.ManyToManyField(Zutaten)
 
     def __str__(self):
         return self.name
@@ -27,13 +27,14 @@ class Produkt(models.Model):
 
 
 class Lieferung(models.Model):
-    strasse = models.CharField(max_length=60)  # ToDo: Strassennummer einzeln erfassen
+    vorname = models.CharField(max_length=50)
+    nachname = models.CharField(max_length=50)
+    strasse = models.CharField(max_length=60)  
+    hausnummer = models.CharField(max_length=30)
     plz = models.IntegerField()
     ort = models.CharField(max_length=60)
     produkte = models.ManyToManyField(Produkt)
-    vorname = models.CharField(max_length=50)
-    nachname = models.CharField(max_length=50)
-    # ToDo: Lieferung muss abschliessbar sein
+    ausgeliefert = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Lieferung"
@@ -43,5 +44,5 @@ class Lieferung(models.Model):
 class LieferungForm(ModelForm):
     class Meta:
         model = Lieferung
-        fields = ["produkte", "strasse", "plz", "ort", "vorname", "nachname"]
+        fields = ["produkte", "vorname", "nachname", "strasse", "hausnummer", "plz", "ort"]
         labels = None

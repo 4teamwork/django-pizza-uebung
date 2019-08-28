@@ -23,6 +23,11 @@
                 </ul>
                 <input type="submit">
             </form>
+            <ul>
+                {% for produkt in produkte.all %}
+                <li><a href="http://127.0.0.1:8000/produkt/{{produkt.id}}">{{produkt.name}}</a></li>
+            {% endfor %}
+            </ul>
             {% endblock %}
         </div>
     </body>

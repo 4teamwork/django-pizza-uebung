@@ -1,0 +1,10 @@
+{% extends 'pizza/index.html' %}
+{% block content %}
+    <h1>{{produkt.name}}</h1>
+    <p>{{produkt.preis}}</p>
+    <ul>
+    {% for zutat in produkt.zutaten.all %}
+        <li>{{zutat.name}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
