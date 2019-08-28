@@ -1,17 +1,39 @@
+{% load static %}
 <html lang="de">
     <head>
         <title>Pizza</title>
         <style>
+            body{
+                background-color: lightgreen;
+                background-image: url("https://shakespeares.com/wp-content/uploads/2015/06/pizza_spin.gif");
+                background-size: 5%;
+                font-family:'Comic Sans MS',Verdana,Helvetica;
+                color: lightsalmon;
+                text-shadow:  2px  2px 2px purple,
+                              2px -2px 2px purple,
+                             -2px  2px 2px purple,
+                             -2px -2px 2px purple;
+            }
             .wrapper{
                 max-width: 900px;
                 margin:0 auto;
             }
-            *{
-                font-family: Helvetica Neue, sans-serif;
+            .pizzabild{
+                float: right;
+                border: 20px dashed fuchsia;
             }
+            .katze{
+                float: right;
+                border: 20px dashed aqua;
+            }
+
         </style>
     </head>
     <body>
+        <div class="pizzabild">
+            <img src="https://www.gutekueche.ch/upload/rezept/546/pizza-prosciutto.jpg"></img>
+        </div>
+        
         <div class="wrapper">
             {% block content %}
             <h1>PizzaDelivery24.ch</h1>
@@ -23,12 +45,16 @@
                 </ul>
                 <input type="submit">
             </form>
+            <h3>Infos zu den Produkten</h3>
             <ul>
                 {% for produkt in produkte.all %}
-                <li><a href="http://127.0.0.1:8000/produkt/{{produkt.id}}">{{produkt.name}}</a></li>
+                <li><a href="http://127.0.0.1:8000/produkt/{{produkt.id}}" target="_blank">{{produkt.name}}</a></li>
             {% endfor %}
             </ul>
             {% endblock %}
+        </div>
+        <div class="katze">
+                <img src="http://image.blingee.com/images18/content/output/000/000/000/77a/756484747_1541616.gif?4"></img>
         </div>
     </body>
 </html>
