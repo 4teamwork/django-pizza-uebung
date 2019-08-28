@@ -23,6 +23,7 @@ media
 *.so
 
 # Distribution / packaging
+pyvenv.cfg
 .Python
 build/
 develop-eggs/
