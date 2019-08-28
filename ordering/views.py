@@ -12,7 +12,8 @@ def index(request):
         formset = LieferungForm(request.POST, request.FILES)
         if formset.is_valid():
             formset.save()
-            return render(request, "pizza/merci.html", {"produkt": produkt})
+            produkte = formset.cleaned_data.get("produkte")
+            return render(request, "pizza/merci.html", {"produkte": produkte})
 
     return render(request, "pizza/index.html", {"produkte": produkte, "form": form})
     #ToDo: zutaten ersichtlich machen
