@@ -31,7 +31,8 @@ class Lieferung(models.Model):
     plz = models.IntegerField()
     ort = models.CharField(max_length=60)
     produkte = models.ManyToManyField(Produkt)
-    # ToDo: Name von Kunde wird nicht erfasst
+    vorname = models.CharField(max_length=50)
+    nachname = models.CharField(max_length=50)
     # ToDo: Lieferung muss abschliessbar sein
 
     class Meta:
@@ -42,5 +43,5 @@ class Lieferung(models.Model):
 class LieferungForm(ModelForm):
     class Meta:
         model = Lieferung
-        fields = ["produkte", "strasse", "plz", "ort"]
+        fields = ["produkte", "strasse", "plz", "ort", "vorname", "nachname"]
         labels = None
