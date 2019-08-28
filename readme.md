@@ -10,3 +10,11 @@ Dieses Projekt funktioniert mit python 3.7
  source ./bin/activate
  pip install -r requirements.txt
 ```
+## Runserver
+
+```bash
+source ./bin/activate
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 127.0.0.1:8000
+```
