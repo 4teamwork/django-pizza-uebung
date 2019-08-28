@@ -1,0 +1,29 @@
+<html lang="de">
+    <head>
+        <title>Pizza</title>
+        <style>
+            .wrapper{
+                max-width: 900px;
+                margin:0 auto;
+            }
+            *{
+                font-family: Helvetica Neue, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            {% block content %}
+            <h1>PizzaDelivery24.ch</h1>
+            <form method="post">
+                {% csrf_token %}
+                <h2>Bestellen</h2>
+                <ul>
+                    {{ form.as_p }}
+                </ul>
+                <input type="submit">
+            </form>
+            {% endblock %}
+        </div>
+    </body>
+</html>
