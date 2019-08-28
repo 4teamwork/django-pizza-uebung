@@ -4,7 +4,6 @@ from django.forms import ModelForm
 
 class Zutaten(models.Model):
     name = models.CharField(max_length=60)
-    # ToDo: Produkt Übersicht einfügen
     def __str__(self):
         return self.name
 

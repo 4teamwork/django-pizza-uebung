@@ -12,7 +12,7 @@ def index(request):
         formset = LieferungForm(request.POST, request.FILES)
         if formset.is_valid():
             formset.save()
-            return HttpResponse("Bestellung gespeichert") # ToDo: Auf eigene Seite umleiten
+            return render(request, "pizza/merci.html", {"produkt": produkt})
 
     return render(request, "pizza/index.html", {"produkte": produkte, "form": form})
     #ToDo: zutaten ersichtlich machen
